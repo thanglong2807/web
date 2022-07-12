@@ -49,11 +49,17 @@ class ProductController extends Controller
             'loai_san_pham.required'=>"Không được bỏ trống phần này",
             'created_at.required'=>"Không được bỏ trống phần này",
         ]);
+       $file = $request->anh;
+       $file_name = $file->getClientoriginalName();
+    
+        $file->move(public_path('upload'),$file_name);
+        
+
         $dataProduct=[
             $request->name,
             $request->so_luong,
             $request->gia,
-            $request->anh,
+            $request->anh->getClientoriginalName(),
             $request->motangan,
             $request->mota,
             $request->loai_san_pham,
@@ -62,8 +68,8 @@ class ProductController extends Controller
          
         // dd($dataProduct);
         $this->productModel->insertProduct($dataProduct);
-      
-        return back();
+        
+        return  redirect()->route('admin.index');
     }
     public function edit(Request $request ,$id)
     {   
@@ -84,6 +90,7 @@ class ProductController extends Controller
     }
     public function update(Request $request)
     {
+       
         $id = session('id');
         $request->validate([
             'tensp'=>'required',
@@ -102,12 +109,17 @@ class ProductController extends Controller
             'loai_san_pham.required'=>"Không được bỏ trống phần này",
             'updated_at.required'=>"Không được bỏ trống phần này",
         ]);
+
+        $file = $request->anh;
+        $file_name = $file->getClientoriginalName();
+     
+         $file->move(public_path('upload'),$file_name);
         $dataProduct=[
             $request->id,
             $request->tensp,
             $request->so_luong,
             $request->gia,
-            $request->anh,
+            $request->anh->getClientoriginalName(),
             $request->motangan,
             $request->mota,
             $request->loai_san_pham,

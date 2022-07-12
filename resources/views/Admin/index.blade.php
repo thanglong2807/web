@@ -45,7 +45,7 @@
             <td scope="col">{{$row->motangan}}</td>
             <td scope="col">{{$row->mota}}</td>
             <td scope="col">
-                <img src="{{$row->anh}}" alt="">
+                <img style="width:50px" src="/upload/{{$row->anh}}" alt="">
             </td>
             <td scope="col">{{$row->loai_san_pham}}</td>
             <td scope="col">{{$row->created_at}}</td>
