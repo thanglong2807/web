@@ -3,6 +3,7 @@
 use App\Http\Controllers\Client\ClientController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Http\Request;
 
 
@@ -19,6 +20,20 @@ use Illuminate\Http\Request;
 
 Route::get('/',[ClientController::class,'index'])->name('home');
 Route::get('/chitietsp/{id}',[ClientController::class,'chitietsp'])->name('chitietsp');
+Route::get('/register',[RegisterController::class,'register'])->name('register');
+Route::post('/postregister',[RegisterController::class,'postRegister'])->name('postregister');
+Route::get('/login',[RegisterController::class,'login'])->name('login');
+Route::post('/postlogin',[RegisterController::class,'postLogin'])->name('postlogin');
+
+Route::get('/logout',[ClientController::class,'logout'])->name('logout');
+
+
+
+
+
+
+
+
 
 Route::prefix('admin')->name('admin.')->group(function(){
     Route::get('/',[ProductController::class,'index'])->name('index');   

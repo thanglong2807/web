@@ -9,7 +9,7 @@
       <div class="product-container-flex">
         <div  class="product-card card" style="width: 16rem;">
         <a style="text-decoration: none;" href="{{route('chitietsp',['id'=>$item->id])}}">
-            <img style="height: 250px;width:100%" src="/upload/{{$item->anh}}" alt="...">
+            <img style="height: 250px;width:100%" src="/upload/{{$item->anh}}" alt="ảnh">
           <div class="card-body">
             <h5 style="color: black ;font-size:14px;font-weight:700" class="card-title">{{$item->tensp}}</h5>
             <span style="color: black;font-size:12px" class="card-title">{{$item->motangan}}</span>
